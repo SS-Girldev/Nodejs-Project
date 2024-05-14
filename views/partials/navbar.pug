@@ -1,0 +1,23 @@
+html
+  head
+    link(rel="stylesheet", href="/css/styles.css")
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Pacifico&display=swap')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    title navbar
+    
+  body
+    nav.navbar.navbar-dark.custom-bg-color.shadow-sm
+      .container
+        .navbar-brand Profile
+        ul.navbar-nav(style="margin-left: 2%;")
+         li.nav-item
+           a.nav-link(href="#") Home
+        ul.navbar-nav(style="margin-left: 2%;")
+         li.nav-item
+           a.nav-link(href="#") About
+        ul.navbar-nav(style="margin-left: 2%;")
+         li.nav-item
+           a.nav-link(href="#") Contact
+        ul.navbar-nav.ml-auto
+         li.nav-item
+           a.nav-link(href="/logout") Logout

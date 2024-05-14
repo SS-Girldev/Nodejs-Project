@@ -1,0 +1,19 @@
+// login.pug
+
+doctype html
+html
+  head
+    link(rel="stylesheet", href="/css/styles.css")
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Pacifico&display=swap')
+    title Login
+
+  body
+   
+    div#login-form
+      h1 Login
+      form(action="/login", method="post")
+        input(type="text", name="username", placeholder="Username" class="form-control")
+        br
+        input(type="password", name="password", placeholder="Password" class="form-control")
+        br
+        button(type="submit") Login

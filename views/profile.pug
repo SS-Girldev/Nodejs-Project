@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", href="/css/styles.css")
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Pacifico&display=swap')
+    link(rel="stylesheet", href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    title Profile
+    include partials/navbar
+  body
+    .container(style="display:block; margin-top: 5%; ")
+      .card(style="border:none; ")
+        .card-header
+            div#profile
+    
+                 p Welcome, #{user.username}!
+                 br
+                 
+        .card-body(style="margin-top: 5%; background-color: #E0B0FF !important; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);")
+          form(action="/profile", method="post")
+            input(type="hidden", name="_csrf", value="#{user.csrf_token}")
+            input(type="hidden", name="user_id", value="#{user.id}")
+            .row 
+              .col-md-2
+                     label Name :
+              .col-md-4
+                     input(type="text", name="name", value="")
+              .col-md-2
+                     label Address : 
+              .col-md-4
+                     input(type="text", name="address", value="")
+            br
+            br         
+            .row 
+              .col-md-2
+                     label Contact : 
+              .col-md-4
+                     input(type="text", name="contact", value="")
+              .col-md-2
+                     label Reference No : 
+              .col-md-4
+                     input(type="number", name="reference-no", value="")
+            br
+            br
+            .row
+              
+                     button(type="submit", class="", style="margin-left:37%; width:20%;" ) Submit
+              

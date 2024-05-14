@@ -1,0 +1,56 @@
+// register.pug
+
+doctype html
+html
+  head
+    link(rel="stylesheet", href="/css/styles.css")
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Pacifico&display=swap')
+    title Register
+    script.
+      function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var errorMessage = document.getElementById("error-message");
+        if (password !== confirmPassword) {
+          errorMessage.textContent = "Passwords do not match";
+          return false;
+        }
+        errorMessage.textContent = ""; // Clear error message if passwords match
+        return true;
+      }
+   
+  body
+   div#register-form
+    h1 Register
+    .container 
+      form(action="/register", method="post")
+        .row.flex-container
+          .col-md-4
+            label Name:
+          .col-md-6
+            input(type="text", name="username", placeholder="Username")
+        
+        .row.flex-container
+          .col-md-4
+            label Email:
+          .col-md-6
+            input(type="email", name="email", placeholder="johndoe@gmail.com")
+        
+        .row.flex-container
+          .col-md-4
+            label Password:
+          .col-md-6
+            input(type="password", name="password", id="password", placeholder="Password")
+        
+        .row.flex-container
+          .col-md-4
+            label Confirm Password:
+          .col-md-6
+            input(type="password", name="confirmPassword", id="confirmPassword" placeholder="Password")
+        
+        .row.flex-container
+          .col-md-6.offset-md-4
+            button(type="submit") Register
+        .row.flex-container
+          .col-md-6.offset-md-4
+            p#error-message(style="color: red; font-weight: bold;") 
