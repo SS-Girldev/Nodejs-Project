@@ -18,7 +18,7 @@ html
         .card-body(style="margin-top: 5%; background-color: #E0B0FF !important; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);")
           form(action="/profile", method="post")
             input(type="hidden", name="_csrf", value="#{user.csrf_token}")
-            input(type="hidden", name="user_id", value="#{user.id}")
+            input(type="hidden", name="user_id", value=user.id)
             .row 
               .col-md-2
                      label Name :
@@ -36,9 +36,9 @@ html
               .col-md-4
                      input(type="text", name="contact", value="")
               .col-md-2
-                     label Reference No : 
+                     label Gender : 
               .col-md-4
-                     input(type="number", name="reference-no", value="")
+                     input(type="text", name="gender", value="")
             br
             br
             .row

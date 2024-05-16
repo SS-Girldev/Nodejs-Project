@@ -1,25 +1,25 @@
 //infoController.js
 
-const { models } = require('../sequelize-init');
-
+const { Info } = require('../config/database');
+const sequelize = require('../config/database'); 
 const storeInfo = async (req, res) => {
   try {
     // Extract data from the request body
-    const { name, address, contact, referenceNo } = req.body;
+    const { name, address, contact, gender} = req.body;
     
     // Get the user ID from the request body or session
-    const userId = req.body.user_id || req.user.id;
+    const userId = req.body.user_id;
 
     // Create a new Info instance
-    const info = await models.Info.create({
+    const info = await Info.create({
       name,
       address,
       contact,
-      reference_no: referenceNo, // assuming referenceNo matches the column name in the Info table
+      gender, 
       user_id: userId
     });
 
-    // Redirect back to the profile page or any other page
+   
     res.redirect('/profile');
   } catch (error) {
     console.error('Error storing info:', error);
@@ -27,6 +27,8 @@ const storeInfo = async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 };
+
+
 
 module.exports = {
   storeInfo
