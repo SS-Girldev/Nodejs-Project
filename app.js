@@ -2,6 +2,8 @@ const express = require('express');
 const session = require('express-session');
 const passport = require('passport');
 const bcrypt = require('bcrypt');
+const flash = require('connect-flash');
+const path = require('path');
 
 const LocalStrategy = require('passport-local').Strategy;
 const { User } = require('./config/database');
@@ -36,6 +38,17 @@ app.use(passport.session());
 
 // Set up view engine
 app.set('view engine', 'pug');
+
+
+// Set up flash middleware
+app.use(flash());
+
+// Middleware to make flash messages available in templates
+app.use((req, res, next) => {
+  res.locals.successMessages = req.flash('success');
+  res.locals.errorMessages = req.flash('error');
+  next();
+});
 
 
 

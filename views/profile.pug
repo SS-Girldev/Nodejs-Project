@@ -10,12 +10,18 @@ html
     .container(style="display:block; margin-top: 5%; ")
       .card(style="border:none; ")
         .card-header
+            if successMessage
+                 p.success-message= successMessage
             div#profile
     
                  p Welcome, #{user.username}!
                  br
                  
+              
+
         .card-body(style="margin-top: 5%; background-color: #E0B0FF !important; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);")
+         
+          
           form(action="/profile", method="post")
             input(type="hidden", name="_csrf", value="#{user.csrf_token}")
             input(type="hidden", name="user_id", value=user.id)
@@ -39,9 +45,11 @@ html
                      label Gender : 
               .col-md-4
                      input(type="text", name="gender", value="")
+              
             br
             br
             .row
               
                      button(type="submit", class="", style="margin-left:37%; width:20%;" ) Submit
+                     
               

@@ -34,7 +34,8 @@ exports.postRegister = async (req, res) => {
 
 exports.getProfile = (req, res) => {
   if (req.isAuthenticated()) {
-    res.render('profile');
+    const successMessage = req.query.successMessage;
+    res.render('profile', { successMessage });
   } else {
     res.redirect('/login');
   }

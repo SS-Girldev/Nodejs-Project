@@ -20,7 +20,7 @@ const storeInfo = async (req, res) => {
     });
 
    
-    res.redirect('/profile');
+    res.redirect('/profile?successMessage=Form submitted successfully!');
   } catch (error) {
     console.error('Error storing info:', error);
     // Handle errors, e.g., show an error page
